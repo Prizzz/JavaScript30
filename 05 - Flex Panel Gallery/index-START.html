@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Flex Panels 💪</title>
   <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <style>
@@ -26,14 +27,19 @@
     .panels {
       min-height: 100vh;
       overflow: hidden;
+      display: flex;
     }
 
     .panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex: 1;
       background: #6B0F9C;
       box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
       color: white;
       text-align: center;
-      align-items: center;
       /* Safari transitionend event.propertyName === flex */
       /* Chrome + FF transitionend event.propertyName === flex-grow */
       transition:
@@ -53,9 +59,29 @@
 
     /* Flex Children */
     .panel > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1 0 auto;
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+    }
+
+    .panel > *:first-child {
+      transform: translateY(-100%);
+    }
+
+    .panel > *:last-child {
+      transform: translateY(100%);
+    }
+
+    .panel.open-active > *:first-child {
+      transform: translateY(0);
+    }
+
+    .panel.open-active > *:last-child {
+      transform: translateY(0);
     }
 
     .panel p {
@@ -70,6 +96,7 @@
     }
 
     .panel.open {
+      flex: 5;
       font-size: 40px;
     }
 
@@ -103,12 +130,5 @@
       <p>Motion</p>
     </div>
   </div>
-
-  <script>
-
-  </script>
-
-
-
 </body>
 </html>
