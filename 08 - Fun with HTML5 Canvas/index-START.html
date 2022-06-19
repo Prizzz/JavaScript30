@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>HTML5 Canvas</title>
-</head>
-<body>
-<canvas id="draw" width="800" height="800"></canvas>
-<script>
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <div class="control">
+      <input type="color" class="color" />
+      <input type="number" value="1" class="size" />
+    </div>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
 
-<style>
-  html, body {
-    margin: 0;
-  }
-</style>
-
-</body>
+      .control {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+      }
+    </style>
+  </body>
 </html>
